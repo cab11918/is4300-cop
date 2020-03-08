@@ -6,8 +6,9 @@ import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import grey from '@material-ui/core/colors/grey';
 import {withStyles} from "@material-ui/core/styles";
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-
-
+import Button from "@material-ui/core/Button";
+import {Link} from "react-router-dom";
+import SchoolIcon from '@material-ui/icons/School';
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
@@ -32,7 +33,13 @@ const useStyles = theme => ({
     marginRight: theme.spacing(1),
 
   },
+feedbackButton: {
+  marginRight: theme.spacing(1),
 
+},
+  logInButton:{
+    marginRight: theme.spacing(1),
+  }
 
 });
 
@@ -52,11 +59,14 @@ class NavBar extends React.Component {
             <AppBar className={classes.nav} position="static">
               <Toolbar>
 
-                <MeetingRoomIcon className={classes.logo}/>
+                <SchoolIcon className={classes.logo}/>
                 <Typography variant="h5" className={classes.title}>
                   COP
                 </Typography>
 
+                <Button variant="contained" className={classes.logInButton} href={'/login'}>Log In</Button>
+                <Button variant="contained" className={classes.feedbackButton} href={'/profile'}>My Bookings</Button>
+                <Button variant="contained" className={classes.feedbackButton} href={'/feedback'}>Send Feedback</Button>
 
               </Toolbar>
             </AppBar>

@@ -1,5 +1,5 @@
 import React from 'react';
-import MainView from '../src/containers/MainView'
+import AllViews from '../src/containers/AllViews'
 import ProfileView from '../src/containers/ProfileView'
 import './App.css';
 import MapContainer from "./components/MapContainer";
@@ -15,7 +15,7 @@ function App() {
       {/*<ProfileView/>*/}
 
 
-         <MainView/>
+         <AllViews/>
 
 
     </div>

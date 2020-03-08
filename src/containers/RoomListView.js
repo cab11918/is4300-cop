@@ -17,7 +17,10 @@ import {
   Route,
   Link, withRouter
 } from "react-router-dom";
-
+import RoomList from "../components/RoomList";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
@@ -33,6 +36,10 @@ const useStyles = theme => ({
     textAlign: 'left',
     color: theme.palette.text.primary,
     margin: theme.spacing(0)
+  },
+  backButton:{
+    alignItems:'left',
+
   }
 
 });
@@ -55,34 +62,41 @@ class MainView extends React.Component {
 
     return (
 
-<Fragment>
-  <AppBar/>
+        <Fragment>
+          <AppBar/>
 
-  <Container maxWidth="100%">
+          <Container maxWidth="100%">
 
-    <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="flex-start"
-    >
-      <Grid item xs={12} sm={7} lg={8}>
-        <Paper className={classes.paper} elevation={3}>
+            <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+            >
+              <Grid item xs={12} sm={7} lg={8}>
+                <Paper className={classes.paper} elevation={3}>
 
 
-          <MapContainer/>
-        </Paper>
-      </Grid>
-      <Grid item xs={12} sm={5} lg={4}>
-        <Paper elevation={3} className={classes.paper}>
-          <Typography variant={'h4'} className={classes.buildingTitle}>Buildings</Typography>
-        <BuildingList/>
-        </Paper>
-      </Grid>
-    </Grid>
-  </Container>
+                  <MapContainer/>
+                </Paper>
+              </Grid>
 
-</Fragment>
+              <Grid item xs={12} sm={5} lg={4}>
+
+                <Paper elevation={3} className={classes.paper}>
+
+                  <Typography variant={'h4'} className={classes.buildingTitle}>
+                    <IconButton aria-label="delete" href={'/'} className={classes.backButton}>
+                      <ArrowBackIosIcon />
+                    </IconButton>
+                    Rooms</Typography>
+                  <RoomList/>
+                </Paper>
+              </Grid>
+            </Grid>
+          </Container>
+
+        </Fragment>
 
 
 

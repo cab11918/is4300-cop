@@ -8,11 +8,10 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {grey} from "@material-ui/core/colors";
 import CardActionArea from "@material-ui/core/CardActionArea";
-
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
-    display: 'flex',
   },
 
   title: {
@@ -24,9 +23,7 @@ const useStyles = theme => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  content: {
-    flex: '1 0 auto',
-  },
+
   cover: {
     width: 400,
     align:'right'
@@ -34,7 +31,7 @@ const useStyles = theme => ({
 
 });
 
-class BuildingCard extends React.Component {
+class RoomCard extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -47,22 +44,18 @@ class BuildingCard extends React.Component {
         <Card className={classes.root}>
 
           <div className={classes.details}>
-            <CardActionArea href={'/room'}>
-            <CardContent className={classes.content}>
-              <Typography component="h5" variant="h5">
-                Shillman Hall
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                20/35
-              </Typography>
-            </CardContent>
+            <CardActionArea href={'/room/101'}>
+              <CardContent className={classes.content}>
+                <Typography component="h5" variant="h5">
+                  ROOM 101
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  4/5
+                </Typography>
+              </CardContent>
             </CardActionArea>
           </div>
-          <CardMedia
-              className={classes.cover}
-              image={require("../imgs/shillmanhall.jpg")}
-              title="Live from space album cover"
-          />
+
 
 
 
@@ -73,5 +66,5 @@ class BuildingCard extends React.Component {
 
 }
 
-export default withStyles(useStyles)(BuildingCard)
+export default withStyles(useStyles)(RoomCard)
 
