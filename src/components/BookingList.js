@@ -86,7 +86,9 @@ class BookingList extends React.Component {
                                                       className={classes.feedbackButton}
                                                       onClick={() => {
                                                         alert(
-                                                            "Still implementing!")
+                                                            "Your booking"
+                                                            + " was"
+                                                            + " cancelled!")
                                                       }}
                     >Cancel</Button>
                     </TableCell>
