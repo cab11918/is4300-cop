@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="601293d4-7c06-48fe-be9b-dd8c4a800cdf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BookingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MapContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MapContainer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,18 +13,8 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>google</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="831" />
   </component>
   <component name="ProjectId" id="1YrDeSzbm6dUjZaCVGF4zwjLXal" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -39,12 +29,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8.0_191" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -54,6 +48,9 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/others" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/components" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -92,7 +89,12 @@
       <workItem from="1583529478339" duration="1017000" />
       <workItem from="1583691601662" duration="216000" />
       <workItem from="1583691926674" duration="6142000" />
-      <workItem from="1583698475896" duration="1590000" />
+      <workItem from="1583698475896" duration="2237000" />
+      <workItem from="1584325146830" duration="3474000" />
+      <workItem from="1584411793618" duration="548000" />
+      <workItem from="1584412388137" duration="20000" />
+      <workItem from="1584412422437" duration="5785000" />
+      <workItem from="1584472370787" duration="161000" />
     </task>
     <servers />
   </component>
@@ -100,17 +102,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="397" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1583691925786">
+    <state x="320" y="104" key="#ESLint" timestamp="1584411717661">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.831@0.23.1440.831" timestamp="1583691925786" />
+    <state x="320" y="104" key="#ESLint/0.23.1440.831@0.23.1440.831" timestamp="1584411717661" />
+    <state x="397" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1584325158719">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.831@0.23.1440.831" timestamp="1584325158719" />
+    <state x="389" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584401679613">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state x="389" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.831@0.23.1440.831" timestamp="1584401679613" />
+    <state x="97" y="61" key="new project wizard" timestamp="1584401887694">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state x="97" y="61" key="new project wizard/0.23.1440.831@0.23.1440.831" timestamp="1584401887694" />
+    <state x="385" y="178" width="670" height="676" key="search.everywhere.popup" timestamp="1584412297598">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state x="385" y="178" width="670" height="676" key="search.everywhere.popup/0.23.1440.831@0.23.1440.831" timestamp="1584412297598" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/MapContainer.js</url>
-          <line>27</line>
+          <line>32</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

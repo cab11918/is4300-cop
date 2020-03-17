@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Behrakis Health Sciences Center",
+    "position": {
+      "lat": 42.336889,
+      "lng": -71.091546
+    }
+
+  },
+
+  {
+    "name": "Ell Hall",
+    "position": {
+      "lat": 42.339729,
+      "lng": -71.087958
+    }
+
+  },
+  {
+    "name": "Cargill Hall",
+    "position": {
+      "lat": 42.339090,
+      "lng": -71.091583
+    }
+
+  },
+  {
+    "name": "Churchill Hall",
+    "position": {
+      "lat": 42.338805,
+      "lng": -71.088913
+    }
+
+  },
+
+  {
+    "name": "Curry Student Center",
+    "position": {
+      "lat": 42.339147,
+      "lng": -71.087572
+    }
+
+  },
+  {
+    "name": "Dodge Hall",
+    "position": {
+      "lat": 42.340259,
+      "lng": -71.087853
+    }
+
+  },
+  {
+    "name": "East Village",
+    "position": {
+      "lat": 42.340437,
+      "lng": -71.086879
+    }
+
+  },
+  {
+    "name": "Forsyth Building",
+    "position": {
+      "lat": 42.338681,
+      "lng": -71.090494
+    }
+
+  }
+]
