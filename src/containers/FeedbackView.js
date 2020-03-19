@@ -22,34 +22,34 @@ import ProfileView from "./ProfileView";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from "@material-ui/core/TextField";
+import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = theme => ({
   paper: {
     marginTop: theme.spacing(3)
   },
   title: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    margin: theme.spacing(1),
+
 
   },
   closeButton:{
     alignItems:'flex-end',
+    margin: theme.spacing(1),
+
 
   },
   textBox:{
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    margin: theme.spacing(2),
+
   },
   sendButton:{
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    alignContent: 'right'
+    margin: theme.spacing(1),
+    fontSize:15
+  },
+  sendIcon:{
+    size:15,
+    marginLeft: theme.spacing(1)
   }
 });
 
@@ -70,38 +70,63 @@ class AllViews extends React.Component {
     const {classes} = this.props;
 
     return (
-        <Container maxWidth="100%">
 
           <Grid
               container
               direction="row"
               justify="center"
-              alignItems="flex-start"
+              alignItems="center"
+              style={{ minHeight: '95vh' }}
           >
-            <Grid item xs={12} sm={7} lg={8}>
+            <Grid item xs={11} sm={6} lg={5}>
               <Paper className={classes.paper} elevation={3}>
+               <Grid container>
+                 <Grid
+                     item
 
-                <IconButton aria-label="delete" href={'/'} className={classes.closeButton}>
-                  <CloseIcon />
-                </IconButton>
+                 >
+                   <IconButton aria-label="delete" href={'/'} className={classes.closeButton}>
+                     <CloseIcon />
+                   </IconButton>
+                 </Grid>
 
-                <Typography variant={'h4'}
-                            className={classes.title}>Feedback</Typography>
+                 <Grid item>
 
-
+                   <Typography variant={'h4'}
+                               className={classes.title}>Feedback</Typography>
+                 </Grid>
+               </Grid>
                 <form className={classes.textBox} noValidate autoComplete="off">
-                  <TextField id="outlined-basic" variant="outlined" fullWidth multiline
+                  <TextField  placeholder={"Say something good..."} id="outlined-basic" variant="outlined" fullWidth multiline
                              rows="10" />
                 </form>
+                <Grid
+                    container
+                    direction="row"
+                    justify="flex-end"
+                    alignItems="center"
+                >
+
                 <Button variant="contained" color="secondary" className={classes.sendButton} href={'/'}>
+
                   Send
+                  <SendIcon className={classes.sendIcon}/>
                 </Button>
+                </Grid>
+
+
+
+
+
+
 
               </Paper>
+
             </Grid>
 
+
           </Grid>
-        </Container>
+
 
     )
 

@@ -26,7 +26,8 @@ const useStyles = theme => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    height:'80vh'
   },
   buildingTitle:{
     padding: theme.spacing(1),

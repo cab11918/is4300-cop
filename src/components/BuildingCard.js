@@ -11,8 +11,8 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 
 const useStyles = theme => ({
   root: {
-    flexGrow: 1,
-    display: 'flex',
+    flexGrow: 12,
+
   },
 
   title: {
@@ -28,7 +28,8 @@ const useStyles = theme => ({
     flex: '1 0 auto',
   },
   cover: {
-    width: 400,
+    width: '100%',
+    height: 100,
     align:'right'
   }
 
@@ -51,6 +52,9 @@ class BuildingCard extends React.Component {
             <CardContent className={classes.content}>
               <Typography component="h5" variant="h5">
                 Shillman Hall
+              </Typography>
+              <Typography variant="subtitle1" color="textSecondary">
+                160 Huntington Ave
               </Typography>
               <Typography variant="subtitle1" color="textSecondary">
                 20/35

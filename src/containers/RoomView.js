@@ -27,6 +27,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Toolbar from "@material-ui/core/Toolbar";
+import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
 
 const useStyles = theme => ({
   root: {
@@ -35,7 +36,8 @@ const useStyles = theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'flex-start',
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    minHeight:'80vh'
   },
   buildingTitle: {
     padding: theme.spacing(1),
@@ -53,7 +55,12 @@ const useStyles = theme => ({
   },
   bookButton:{
     align:'flex-end',
+    position: 'absolute',
 
+
+  },
+  bookIcon:{
+    marginLeft: theme.spacing(1),
 
   }
 
@@ -106,6 +113,13 @@ class MainView extends React.Component {
                       <ArrowBackIosIcon/>
                     </IconButton>
                     Room 101</Typography>
+
+                  <Grid
+                      container
+                      direction="column"
+                      justify="flex-start"
+                      alignItems="flex-start"
+                  >
                   <Typography variant={'h6'} className={classes.buildingTitle}>
                     Status: vacant
                   </Typography>
@@ -130,37 +144,40 @@ class MainView extends React.Component {
                   <Typography variant={'h6'} className={classes.buildingTitle}>
                     Time:
                   </Typography>
-                  <form className={classes.container} noValidate>
-                    <TextField
-                        id="time"
-                        type="time"
-                        label="From"
-                        defaultValue="07:30"
-                        className={classes.formControl}
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                        inputProps={{
-                          step: 300, // 5 min
-                        }}
-                    />
-                  </form>
+            <Grid container>    <Grid item>  <form className={classes.container} noValidate>
+              <TextField
+                  id="time"
+                  type="time"
+                  label="From"
+                  defaultValue="07:30"
+                  className={classes.formControl}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  inputProps={{
+                    step: 300, // 5 min
+                  }}
+              />
+            </form></Grid>
+              <Grid item>
+                <form className={classes.container} noValidate>
+                  <TextField
+                      id="time"
+                      type="time"
+                      label="To"
+                      defaultValue="07:30"
+                      className={classes.formControl}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      inputProps={{
+                        step: 300, // 5 min
+                      }}
+                  />
+                </form>
+              </Grid></Grid>
 
-                  <form className={classes.container} noValidate>
-                    <TextField
-                        id="time"
-                        type="time"
-                        label="To"
-                        defaultValue="07:30"
-                        className={classes.formControl}
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                        inputProps={{
-                          step: 300, // 5 min
-                        }}
-                    />
-                  </form>
+
 
                   <Typography variant={'h6'} className={classes.buildingTitle}>
                     Date:
@@ -177,15 +194,21 @@ class MainView extends React.Component {
                     />
                   </form>
 
-                  <Grid container
-                        direction={'row'}
-                        justify={'flex-end'}
-                        alignItems={'center'}>
-                  <Button variant="contained" className={classes.bookButton} href={'/'}>Book</Button>
                   </Grid>
 
 
+
+                  <Grid
+                      container
+                      direction="column-reverse"
+                      justify="flex-end"
+                      alignItems="flex-end"
+                  >
+                    <Button variant="contained" className={classes.bookButton} href={'/'}>Book
+                    <ConfirmationNumberIcon className={classes.bookIcon}/></Button>
+                  </Grid>
                 </Paper>
+
               </Grid>
             </Grid>
           </Container>

@@ -21,6 +21,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import BookingList from "../components/BookingList";
 
+
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
@@ -28,18 +29,25 @@ const useStyles = theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'flex-start',
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    height: '80vh'
+
   },
-  buildingTitle:{
+  buildingTitle: {
     padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.primary,
     margin: theme.spacing(0)
   },
-  closeButton:{
-    alignItems:'flex-end',
+  closeButton: {
+    alignItems: 'flex-end',
 
   },
+  bookings:{
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(2),
+    marginLeft:theme.spacing(2)
+  }
 
 });
 
@@ -74,19 +82,26 @@ class MainView extends React.Component {
             >
               <Grid item xs={12} sm={7} lg={8}>
                 <Paper className={classes.paper} elevation={3}>
+                  <Grid container>
+                    <Grid item> <IconButton aria-label="delete" href={'/'}
+                                            className={classes.closeButton}>
+                      <CloseIcon/>
+                    </IconButton></Grid>
+                    <Grid item>
+                      <Typography variant={'h4'}>New User</Typography>
+                    </Grid>
+                  </Grid>
 
-                  <IconButton aria-label="delete" href={'/'} className={classes.closeButton}>
-                    <CloseIcon />
-                  </IconButton>
-                  <Typography variant={'h4'}>New User</Typography>
-                  <Typography variant={'h5'}>Bookings</Typography>
+
+                  <Typography variant={'h5'} className={classes.bookings}>Bookings</Typography>
                   <BookingList/>
 
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={5} lg={4}>
                 <Paper elevation={3} className={classes.paper}>
-                  <Typography variant={'h4'} className={classes.buildingTitle}>Buildings</Typography>
+                  <Typography variant={'h4'}
+                              className={classes.buildingTitle}>Buildings</Typography>
                   <BuildingList/>
                 </Paper>
               </Grid>
@@ -94,8 +109,6 @@ class MainView extends React.Component {
           </Container>
 
         </Fragment>
-
-
 
     )
 
