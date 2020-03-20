@@ -25,7 +25,7 @@ import TextField from "@material-ui/core/TextField";
 
 const useStyles = theme => ({
   paper: {
-    marginTop: theme.spacing(3)
+    margin: theme.spacing(3),
   },
   title: {
     marginTop: theme.spacing(1),
@@ -70,42 +70,58 @@ class LoginView extends React.Component {
     const {classes} = this.props;
 
     return (
-        <Container maxWidth="100%" justify="center">
 
 
+
+          <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              style={{ minHeight: '95vh'}}
+
+          >
+
+            <Paper className={classes.paper} elevation={3}>
             <Grid direction="row">
             <Typography variant={'h4'}
-                        className={classes.title}>Login</Typography>
+                        className={classes.title} style={{margin: 20}}>Login</Typography>
             </Grid>
 
-            <Grid direction="row">
               <TextField
-                  id="filled-required"
+                  id="standard-basic"
                   label="Username"
-                  variant="filled"
+                  variant="outlined"
+                  style={{margin: 10}}
               />
-            </Grid>
+
           <Grid direction="row">
           <TextField
-              id="filled-password-input"
+              id="standard-basic"
               label="Password"
               type="password"
               autoComplete="current-password"
-              variant="filled"
+              variant="outlined"
+              style={{margin: 10}}
+
           />
 
 
           </Grid>
-          <Grid direction="row">
+          <Grid direction="row" >
 
-          <Button variant="contained" color="primary" href={'/'}>
+          <Button variant="contained" color="primary" href={'/'}  style={{margin: 10}}>
             Log in
           </Button>
+          </Grid>
+            </Paper>
           </Grid>
 
 
 
-        </Container>
+
+
+
 
     )
 

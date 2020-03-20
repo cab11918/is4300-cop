@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="601293d4-7c06-48fe-be9b-dd8c4a800cdf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BuildingCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuildingCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/FeedbackView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FeedbackView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/MainView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MainView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ProfileView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/RoomListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RoomListView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/RoomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RoomView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +97,7 @@
       <workItem from="1584472370787" duration="161000" />
       <workItem from="1584474314153" duration="455000" />
       <workItem from="1584479168593" duration="1239000" />
-      <workItem from="1584587469470" duration="8916000" />
+      <workItem from="1584587469470" duration="10962000" />
     </task>
     <servers />
   </component>
