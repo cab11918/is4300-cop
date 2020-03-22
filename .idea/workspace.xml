@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="601293d4-7c06-48fe-be9b-dd8c4a800cdf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/FeedbackView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FeedbackView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/MainView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MainView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -97,7 +99,15 @@
       <workItem from="1584472370787" duration="161000" />
       <workItem from="1584474314153" duration="455000" />
       <workItem from="1584479168593" duration="1239000" />
-      <workItem from="1584587469470" duration="10962000" />
+      <workItem from="1584587469470" duration="11241000" />
+      <workItem from="1584677323880" duration="29000" />
+      <workItem from="1584677374049" duration="97000" />
+      <workItem from="1584732039352" duration="12000" />
+      <workItem from="1584732189580" duration="16000" />
+      <workItem from="1584733960294" duration="5000" />
+      <workItem from="1584737883158" duration="132000" />
+      <workItem from="1584763679727" duration="93000" />
+      <workItem from="1584836906722" duration="3150000" />
     </task>
     <servers />
   </component>
@@ -109,10 +119,14 @@
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="320" y="104" key="#ESLint/0.23.1440.831@0.23.1440.831" timestamp="1584411717661" />
-    <state x="397" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1584587469156">
+    <state x="221" y="76" key="SettingsEditor" timestamp="1584677353033">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.831@0.23.1440.831" timestamp="1584587469156" />
+    <state x="221" y="76" key="SettingsEditor/0.23.1440.831@0.23.1440.831" timestamp="1584677353033" />
+    <state x="397" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1584836906667">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.831@0.23.1440.831" timestamp="1584836906667" />
     <state x="389" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584401679613">
       <screen x="0" y="23" width="1440" height="831" />
     </state>

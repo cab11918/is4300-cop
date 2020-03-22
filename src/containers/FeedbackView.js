@@ -23,6 +23,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from "@material-ui/core/TextField";
 import SendIcon from '@material-ui/icons/Send';
+import Slide from "@material-ui/core/Slide";
 
 const useStyles = theme => ({
   paper: {
@@ -79,6 +80,8 @@ class AllViews extends React.Component {
               style={{ minHeight: '95vh' }}
           >
             <Grid item xs={11} sm={6} lg={5}>
+              <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+
               <Paper className={classes.paper} elevation={3}>
                <Grid container>
                  <Grid
@@ -121,6 +124,7 @@ class AllViews extends React.Component {
 
 
               </Paper>
+              </Slide>
 
             </Grid>
 

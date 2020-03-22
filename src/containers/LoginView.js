@@ -22,6 +22,7 @@ import ProfileView from "./ProfileView";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from "@material-ui/core/TextField";
+import Slide from "@material-ui/core/Slide";
 
 const useStyles = theme => ({
   paper: {
@@ -36,6 +37,8 @@ const useStyles = theme => ({
   },
   closeButton:{
     alignItems:'flex-end',
+    margin: theme.spacing(1),
+
 
   },
   textBox:{
@@ -50,7 +53,8 @@ const useStyles = theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     alignContent: 'right'
-  }
+  },
+
 });
 
 class LoginView extends React.Component {
@@ -81,12 +85,26 @@ class LoginView extends React.Component {
               style={{ minHeight: '95vh'}}
 
           >
+            <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+
 
             <Paper className={classes.paper} elevation={3}>
-            <Grid direction="row">
-            <Typography variant={'h4'}
-                        className={classes.title} style={{margin: 20}}>Login</Typography>
-            </Grid>
+              <Grid container>
+                <Grid
+                    item
+
+                >
+                  <IconButton aria-label="delete" href={'/'} className={classes.closeButton}>
+                    <CloseIcon />
+                  </IconButton>
+                </Grid>
+
+                <Grid item>
+
+                  <Typography variant={'h4'}
+                              className={classes.title}>Login</Typography>
+                </Grid>
+              </Grid>
 
               <TextField
                   id="standard-basic"
@@ -115,6 +133,7 @@ class LoginView extends React.Component {
           </Button>
           </Grid>
             </Paper>
+            </Slide>
           </Grid>
 
 
