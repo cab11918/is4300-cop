@@ -9,6 +9,7 @@ import MarkerWithLabel from 'react-google-maps/lib/components/addons/MarkerWithL
 
 import STYLE from '../others/mapStyle'
 import LOCATIONS from '../others/locations'
+import SERVICE from '../service'
 
 class MapContainer extends Component {
   constructor(props) {
@@ -22,13 +23,19 @@ class MapContainer extends Component {
           lng: -71.088525,
         }
       }],
-      locations: LOCATIONS
+      locations: []
 
     }
 
   }
+    componentDidMount() {
+        SERVICE.getInstance().getBuildingsList().then(locations => {
+            this.setState({locations:locations})
+            console.log(this.state.buildings)
+        })
+    }
 
-  render() {
+    render() {
     const ClassroomMap = withGoogleMap(props => (
         <GoogleMap
             defaultCenter={{
@@ -46,8 +53,7 @@ class MapContainer extends Component {
           {
             this.state.locations.map(loc => (
                 <MarkerWithLabel labelAnchor={{x: -2, y: -2}}
-
-                                 position={loc.position}
+                                 position={{lat:loc.latitude, lng:loc.longitude}}
                                  onClick={()=>{alert(loc.name)}}>
                   <div style={{fontSize: 18,fontWeight: 'bold'}}>{loc.name}</div>
                 </MarkerWithLabel>

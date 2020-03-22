@@ -62,10 +62,10 @@ class AllViews extends React.Component {
       <LoginView/>
     </Route>
 
-    <Route exact path="/room">
+    <Route exact path="/buildings/1/rooms">
       <RoomListView/>
     </Route>
-    <Route exact path="/room/101">
+    <Route exact path="/buildings/1/rooms/1">
       <RoomView/>
     </Route>
 

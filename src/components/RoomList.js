@@ -17,76 +17,122 @@ import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
+import SERVICE from '../service'
 
 import ShillmanHallImg from '../imgs/shillmanhall.jpg'
 import BuildingCard from "./BuildingCard";
 import RoomCard from "./RoomCard";
 import Grow from "@material-ui/core/Grow";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useStyles = theme => ({
 
-  table: {
-    maxHeight: 440,
-    overflowY:'auto'
+    root: {
+        flexGrow: 1,
+    },
 
-  },
-  tContainer:{
-    overflow: 'auto',
-    height:'72vh'
-  }
+    title: {
+        flexGrow: 1,
+
+    },
+
+    details: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+
+    cover: {
+        width: 400,
+        align: 'right'
+    },
+
+    table: {
+        maxHeight: 440,
+        overflowY: 'auto'
+
+    },
+    tContainer: {
+        overflow: 'auto',
+        height: '72vh'
+    }
 
 
 });
 
 function createData(card) {
-  return {card};
+    return {card};
 }
 
 class RoomList extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            rooms: []
+        }
+    }
 
-  render() {
+    componentDidMount() {
+        const buildingID = 1;
+        SERVICE.getInstance().getRoomsList(buildingID).then(rooms => {
+            this.setState({rooms: rooms})
+            console.log(this.state.rooms)
+        })
+    }
 
-    const {classes} = this.props;
-    const rows = [
-      createData(<RoomCard/>),
-      createData(<RoomCard/>),
-      createData(<RoomCard/>),
-      createData(<RoomCard/>),
-      createData(<RoomCard/>),
+    render() {
+
+        const {classes} = this.props;
+
+        return (
+            <TableContainer className={classes.tContainer}>
+                <Table className={classes.table} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
 
 
-    ];
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {this.state.rooms.map((room, index) => (
+                            <TableRow key={room.roomid}>
+                                <Grow in={true}
+                                      style={{transformOrigin: '0 0 0'}}
+                                      {...({timeout: 1000 + index * 150})}>
 
-    return (
-        <TableContainer className={classes.tContainer}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
+                                    <TableCell><Card className={classes.root} elevation={3}>
+
+                                        <div className={classes.details}>
+
+                                            <CardActionArea href={'/room/101'}>
+                                                <CardContent className={classes.content}>
+                                                    <Typography component="h5" variant="h5">
+                                                      {room.name}
+                                                    </Typography>
+                                                    <Typography variant="subtitle1" color="textSecondary">
+                                                      Capacity: {room.capacity}
+                                                    </Typography>
+
+                                                </CardContent>
+                                                <LinearProgress variant="determinate" value={60}/>
+
+                                            </CardActionArea>
+
+                                        </div>
 
 
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row,index) => (
-                  <TableRow key={row.name}>
-                    <Grow in={true}
-                          style={{transformOrigin: '0 0 0'}}
-                          {...({timeout: 1000 + index * 150})}>
+                                    </Card>
+                                    </TableCell>
+                                </Grow>
 
-                    <TableCell>{row.card}</TableCell>
-                    </Grow>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
 
-                  </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-
-    )
-  }
+        )
+    }
 
 }
 

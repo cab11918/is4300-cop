@@ -21,6 +21,9 @@ import Card from "@material-ui/core/Card";
 import ShillmanHallImg from '../imgs/shillmanhall.jpg'
 import BuildingCard from "./BuildingCard";
 import Grow from "@material-ui/core/Grow";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import SERVICE from "../service"
 
 const useStyles = theme => ({
 
@@ -32,6 +35,28 @@ const useStyles = theme => ({
   tContainer:{
     overflow: 'auto',
     height:'72vh'
+  },
+  root: {
+    flexGrow: 12,
+
+  },
+
+  title: {
+    flexGrow: 1,
+
+  },
+
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    width: '100%',
+    height: 100,
+    align:'right'
   }
 
 
@@ -44,24 +69,21 @@ function createData(card) {
 class BuildingList extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      buildings :[]
+    }
+
+  }
+  componentDidMount() {
+    SERVICE.getInstance().getBuildingsList().then(buildings => {
+      this.setState({buildings:buildings})
+      console.log(this.state.buildings)
+    })
   }
 
   render() {
 
     const {classes} = this.props;
-    const rows = [
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-      createData(<BuildingCard/>),
-
-    ];
 
     return (
         <TableContainer className={classes.tContainer}>
@@ -73,15 +95,42 @@ class BuildingList extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row,index) => (
+              { this.state.buildings.map((building,index) => (
 
-                  <TableRow key={row.name}>
+                  <TableRow>
 
                     <Grow in={true}
                           style={{transformOrigin: '0 0 0'}}
                           {...({timeout: 1000 + index * 150})}>
 
-                    <TableCell>{row.card}</TableCell>
+                      <TableCell>        <Card className={classes.root} elevation={3}>
+
+                        <div className={classes.details}>
+                          <CardActionArea href={'/buildings/1/rooms'}>
+                            <CardContent className={classes.content}>
+                              <Typography component="h5" variant="h5">
+                                {building.name}
+                              </Typography>
+                              <Typography variant="subtitle1" color="textSecondary">
+                                {building.address}
+                              </Typography>
+                              <Typography variant="subtitle1" color="textSecondary">
+                                {building.numberOfRooms} rooms available
+                              </Typography>
+
+                            </CardContent>
+                          </CardActionArea>
+
+                        </div>
+                        <CardMedia
+                            className={classes.cover}
+                            image={building.image}
+                            title="Live from space album cover"
+                        />
+                        <LinearProgress variant="determinate" value={80} style={{height:10,}}/>
+
+
+                      </Card></TableCell>
                     </Grow>
 
                   </TableRow>
