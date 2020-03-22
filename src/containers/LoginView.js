@@ -29,14 +29,11 @@ const useStyles = theme => ({
     margin: theme.spacing(3),
   },
   title: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    margin: theme.spacing(1)
 
   },
   closeButton:{
-    alignItems:'flex-end',
+
     margin: theme.spacing(1),
 
 

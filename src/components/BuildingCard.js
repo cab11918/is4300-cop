@@ -8,6 +8,9 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {grey} from "@material-ui/core/colors";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useStyles = theme => ({
   root: {
@@ -45,7 +48,8 @@ class BuildingCard extends React.Component {
 
     return (
 
-        <Card className={classes.root}>
+
+        <Card className={classes.root} elevation={3}>
 
           <div className={classes.details}>
             <CardActionArea href={'/room'}>
@@ -59,18 +63,21 @@ class BuildingCard extends React.Component {
               <Typography variant="subtitle1" color="textSecondary">
                 20/35
               </Typography>
+
             </CardContent>
             </CardActionArea>
+
           </div>
           <CardMedia
               className={classes.cover}
               image={require("../imgs/shillmanhall.jpg")}
               title="Live from space album cover"
           />
-
+          <LinearProgress variant="determinate" value={80} style={{height:10,}}/>
 
 
         </Card>
+
 
     )
   }

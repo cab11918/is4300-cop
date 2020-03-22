@@ -21,6 +21,7 @@ import Card from "@material-ui/core/Card";
 import ShillmanHallImg from '../imgs/shillmanhall.jpg'
 import BuildingCard from "./BuildingCard";
 import RoomCard from "./RoomCard";
+import Grow from "@material-ui/core/Grow";
 
 const useStyles = theme => ({
 
@@ -69,10 +70,14 @@ class RoomList extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map(row => (
+              {rows.map((row,index) => (
                   <TableRow key={row.name}>
+                    <Grow in={true}
+                          style={{transformOrigin: '0 0 0'}}
+                          {...({timeout: 1000 + index * 150})}>
 
                     <TableCell>{row.card}</TableCell>
+                    </Grow>
 
                   </TableRow>
               ))}

@@ -18,9 +18,9 @@ import {
   Link, withRouter
 } from "react-router-dom";
 import Collapse from "@material-ui/core/Collapse";
-import Grow from "@material-ui/core/Grow";
 import Zoom from "@material-ui/core/Zoom";
 import Slide from "@material-ui/core/Slide";
+import Grow from "@material-ui/core/Grow";
 
 const useStyles = theme => ({
   root: {
@@ -75,21 +75,23 @@ class MainView extends React.Component {
         alignItems="flex-start"
     >
       <Grid item xs={12} sm={7} lg={8}>
+        <Slide direction="right" in={true} mountOnEnter unmountOnExit>
+
         <Paper className={classes.paper} elevation={3}>
 
-          <Slide direction="right" in={true} mountOnEnter unmountOnExit>
 
           <MapContainer/>
-          </Slide>
+
         </Paper>
+        </Slide>
       </Grid>
       <Grid item xs={12} sm={5} lg={4}>
         <Paper elevation={3} className={classes.paper}>
           <Typography variant={'h4'} className={classes.buildingTitle}>Buildings</Typography>
-          <Slide direction="left" in={true} mountOnEnter unmountOnExit>
-            
+
         <BuildingList/>
-          </Slide>
+
+
         </Paper>
       </Grid>
     </Grid>

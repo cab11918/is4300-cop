@@ -9,6 +9,9 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {grey} from "@material-ui/core/colors";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import LinearProgress from "@material-ui/core/LinearProgress";
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
@@ -41,9 +44,10 @@ class RoomCard extends React.Component {
 
     return (
 
-        <Card className={classes.root}>
+        <Card className={classes.root} elevation={3}>
 
           <div className={classes.details}>
+
             <CardActionArea href={'/room/101'}>
               <CardContent className={classes.content}>
                 <Typography component="h5" variant="h5">
@@ -52,8 +56,12 @@ class RoomCard extends React.Component {
                 <Typography variant="subtitle1" color="textSecondary">
                   4/5
                 </Typography>
+
               </CardContent>
+              <LinearProgress variant="determinate" value={60} />
+
             </CardActionArea>
+
           </div>
 
 

@@ -15,6 +15,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
+import Grow from "@material-ui/core/Grow";
 
 const useStyles = theme => ({
   root: {
@@ -74,7 +75,10 @@ class BookingList extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map(row => (
+              {rows.map((row,index) => (
+                  <Grow in={true}
+                        style={{transformOrigin: '0 0 0'}}
+                        {...({timeout: 1000 + index * 150})}>
                   <TableRow key={row.name}>
                     <TableCell component="th" scope="row">
                       {row.building}
@@ -93,6 +97,7 @@ class BookingList extends React.Component {
                     >Cancel</Button>
                     </TableCell>
                   </TableRow>
+                  </Grow>
               ))}
             </TableBody>
           </Table>

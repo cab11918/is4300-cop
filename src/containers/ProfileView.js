@@ -74,6 +74,7 @@ class MainView extends React.Component {
 
           <Container maxWidth="100%">
 
+
             <Grid
                 container
                 direction="row"
@@ -81,6 +82,7 @@ class MainView extends React.Component {
                 alignItems="flex-start"
             >
               <Grid item xs={12} sm={7} lg={8}>
+
                 <Paper className={classes.paper} elevation={3}>
                   <Grid container>
                     <Grid item> <IconButton aria-label="delete" href={'/'}
