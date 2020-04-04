@@ -20,6 +20,8 @@ import {
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import BookingList from "../components/BookingList";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
 
 const useStyles = theme => ({
@@ -51,7 +53,7 @@ const useStyles = theme => ({
 
 });
 
-class MainView extends React.Component {
+class ProfileView extends React.Component {
 
   constructor(props) {
 
@@ -74,7 +76,9 @@ class MainView extends React.Component {
 
           <Container maxWidth="100%">
 
-
+            <div>
+              {this.props.buildings.length}
+            </div>
             <Grid
                 container
                 direction="row"
@@ -96,7 +100,10 @@ class MainView extends React.Component {
 
 
                   <Typography variant={'h5'} className={classes.bookings}>Bookings</Typography>
-                  <BookingList/>
+
+                   {this.props.isLoggedIn ?  <BookingList/> : <div>
+                     Please log in
+                   </div>}
 
                 </Paper>
               </Grid>
@@ -118,5 +125,18 @@ class MainView extends React.Component {
 
 }
 
-export default (withStyles(useStyles)(MainView))
+
+const mapStateToProps = (state) => {
+return{
+  buildings: state.state.buildings,
+  isLoggedIn: state.state.isLoggedIn
+}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(ProfileView))))
 

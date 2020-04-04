@@ -7,6 +7,7 @@ import Container from "@material-ui/core/Container";
 import AppBar from "./components/NavBar";
 
 function App() {
+
   return (
     <div className="App">
 

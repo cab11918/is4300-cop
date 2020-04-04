@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="601293d4-7c06-48fe-be9b-dd8c4a800cdf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BuildingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuildingList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MapContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MapContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RoomList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RoomList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/AllViews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AllViews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ProfileView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +119,7 @@
       <workItem from="1584763679727" duration="93000" />
       <workItem from="1584836906722" duration="3960000" />
       <workItem from="1584844388490" duration="5069000" />
+      <workItem from="1586029531102" duration="6762000" />
     </task>
     <servers />
   </component>
@@ -136,18 +139,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1584906003445" />
-    <state x="397" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1584836906667">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state x="529" y="310" key="com.intellij.ide.util.TipDialog" timestamp="1586029539768">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="529" y="310" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586029539768" />
     <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.831@0.23.1440.831" timestamp="1584836906667" />
     <state x="389" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584401679613">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="389" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.831@0.23.1440.831" timestamp="1584401679613" />
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586033705063">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586033705063" />
     <state x="97" y="61" key="new project wizard" timestamp="1584401887694">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="97" y="61" key="new project wizard/0.23.1440.831@0.23.1440.831" timestamp="1584401887694" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1586032151458">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586032151458" />
     <state x="385" y="178" width="670" height="676" key="search.everywhere.popup" timestamp="1584412297598">
       <screen x="0" y="23" width="1440" height="831" />
     </state>

@@ -23,6 +23,9 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from "@material-ui/core/TextField";
 import Slide from "@material-ui/core/Slide";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {compare} from "../actions/actions";
 
 const useStyles = theme => ({
   paper: {
@@ -59,13 +62,27 @@ class LoginView extends React.Component {
   constructor(props) {
 
     super(props);
-    this.state = {}
-
+    this.state = {
+      username: '',
+      password: ''
+    }
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
+
 
   componentDidMount() {
   }
 
+  handleUsernameChange(e) {
+    this.setState({
+      username: e.target.value
+    })}
+
+  handlePasswordChange(e) {
+    this.setState({
+      password: e.target.value
+    })}
   render() {
 
     const {classes} = this.props;
@@ -108,6 +125,7 @@ class LoginView extends React.Component {
                   label="Username"
                   variant="outlined"
                   style={{margin: 10}}
+                  onChange={this.handleUsernameChange}
               />
 
           <Grid direction="row">
@@ -118,6 +136,8 @@ class LoginView extends React.Component {
               autoComplete="current-password"
               variant="outlined"
               style={{margin: 10}}
+              onChange={this.handlePasswordChange}
+
 
           />
 
@@ -125,9 +145,10 @@ class LoginView extends React.Component {
           </Grid>
           <Grid direction="row" >
 
-          <Button variant="contained" color="primary" href={'/'}  style={{margin: 10}}>
+          <Button variant="contained" color="primary" href={'/'}  style={{margin: 10}} onClick={()=>{this.props.compare({username: this.state.username, password: this.state.password})} }>
             Log in
           </Button>
+
           </Grid>
             </Paper>
             </Slide>
@@ -145,5 +166,17 @@ class LoginView extends React.Component {
 
 }
 
-export default (withStyles(useStyles)(LoginView))
+const mapStateToProps = (state) => {
+  return{
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({compare}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(LoginView))))
 
