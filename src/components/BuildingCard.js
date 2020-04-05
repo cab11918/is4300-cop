@@ -33,7 +33,7 @@ const useStyles = theme => ({
   cover: {
     width: '100%',
     height: 100,
-    align:'right'
+    align: 'right'
   }
 
 });
@@ -48,23 +48,22 @@ class BuildingCard extends React.Component {
 
     return (
 
-
         <Card className={classes.root} elevation={3}>
 
           <div className={classes.details}>
             <CardActionArea href={'/room'}>
-            <CardContent className={classes.content}>
-              <Typography component="h5" variant="h5">
-                Shillman Hall
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                160 Huntington Ave
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                20/35
-              </Typography>
+              <CardContent className={classes.content}>
+                <Typography component="h5" variant="h5">
+                  Shillman Hall
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  160 Huntington Ave
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  20/35
+                </Typography>
 
-            </CardContent>
+              </CardContent>
             </CardActionArea>
 
           </div>
@@ -73,11 +72,11 @@ class BuildingCard extends React.Component {
               image={require("../imgs/shillmanhall.jpg")}
               title="Live from space album cover"
           />
-          <LinearProgress variant="determinate" value={80} style={{height:10,}}/>
+          <LinearProgress variant="determinate" value={80}
+                          style={{height: 10,}}/>
 
 
         </Card>
-
 
     )
   }

@@ -25,116 +25,147 @@ import RoomCard from "./RoomCard";
 import Grow from "@material-ui/core/Grow";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {Link, withRouter} from "react-router-dom";
+import {viewRoom} from "../actions/actions";
 
 const useStyles = theme => ({
 
-    root: {
-        flexGrow: 1,
-    },
+  root: {
+    flexGrow: 1,
+  },
 
-    title: {
-        flexGrow: 1,
+  title: {
+    flexGrow: 1,
 
-    },
+  },
 
-    details: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
 
-    cover: {
-        width: 400,
-        align: 'right'
-    },
+  cover: {
+    width: 400,
+    align: 'right'
+  },
 
-    table: {
-        maxHeight: 440,
-        overflowY: 'auto'
+  table: {
+    maxHeight: 440,
+    overflowY: 'auto'
 
-    },
-    tContainer: {
-        overflow: 'auto',
-        height: '72vh'
-    }
-
+  },
+  tContainer: {
+    overflow: 'auto',
+    height: '72vh'
+  }
 
 });
 
 function createData(card) {
-    return {card};
+  return {card};
 }
 
 class RoomList extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            rooms: []
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      rooms: []
     }
+  }
 
-    componentDidMount() {
-        const buildingID = 1;
-        SERVICE.getInstance().getRoomsList(buildingID).then(rooms => {
-            this.setState({rooms: rooms})
-            console.log(this.state.rooms)
-        })
-    }
+  componentDidMount() {
+    const buildingID = 1;
+    SERVICE.getInstance().getRoomsList(buildingID).then(rooms => {
+      this.setState({rooms: rooms})
+      console.log(this.state.rooms)
+    })
+  }
 
-    render() {
+  render() {
 
-        const {classes} = this.props;
+    const {classes} = this.props;
 
-        return (
-            <TableContainer className={classes.tContainer}>
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-
-
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {this.state.rooms.map((room, index) => (
-                            <TableRow key={room.roomid}>
-                                <Grow in={true}
-                                      style={{transformOrigin: '0 0 0'}}
-                                      {...({timeout: 1000 + index * 150})}>
-
-                                    <TableCell><Card className={classes.root} elevation={3}>
-
-                                        <div className={classes.details}>
-
-                                            <CardActionArea href={'/room/101'}>
-                                                <CardContent className={classes.content}>
-                                                    <Typography component="h5" variant="h5">
-                                                      {room.name}
-                                                    </Typography>
-                                                    <Typography variant="subtitle1" color="textSecondary">
-                                                      Capacity: {room.capacity}
-                                                    </Typography>
-
-                                                </CardContent>
-                                                <LinearProgress variant="determinate" value={60}/>
-
-                                            </CardActionArea>
-
-                                        </div>
+    return (
+        <TableContainer className={classes.tContainer}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
 
 
-                                    </Card>
-                                    </TableCell>
-                                </Grow>
+              </TableRow>
+            </TableHead>
+            <TableBody>
 
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+              {this.props.buildings[this.props.curViewingBuilding].rooms.map(
+                  (room, index) => (
+                      <TableRow key={index}>
+                        <Grow in={true}
+                              style={{transformOrigin: '0 0 0'}}
+                              {...({timeout: 1000 + index * 150})}>
 
-        )
-    }
+                          <TableCell><Card className={classes.root}
+                                           elevation={3}>
+
+                            <div className={classes.details}>
+                              <Link to={"/room"}
+                                    style={{textDecoration: 'none'}}>
+
+                                <CardActionArea onClick={() => {
+                                  this.props.viewRoom(index)
+
+                                }}>
+                                  <CardContent className={classes.content}>
+                                    <Typography component="h5" variant="h5">
+                                      {room.name}
+                                    </Typography>
+                                    <Typography variant="subtitle1"
+                                                color="textSecondary">
+                                      {room.numberOfPeople}/10
+                                    </Typography>
+
+                                  </CardContent>
+                                  <LinearProgress variant="determinate"
+                                                  value={room.numberOfPeople
+                                                  / 10
+                                                  * 100} style={{height: 5}}/>
+
+                                </CardActionArea>
+                              </Link>
+
+                            </div>
+
+
+                          </Card>
+                          </TableCell>
+                        </Grow>
+
+                      </TableRow>
+                  ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+    )
+  }
 
 }
 
-export default withStyles(useStyles)(RoomList)
+const mapStateToProps = (state) => {
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings: state.state.bookings,
+    curViewingBuilding: state.state.curViewingBuilding,
+    curViewingRoom: state.state.curViewingRoom
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({viewRoom}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(RoomList))))
 

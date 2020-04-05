@@ -16,6 +16,10 @@ import TableBody from "@material-ui/core/TableBody";
 import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grow from "@material-ui/core/Grow";
+import {bindActionCreators} from "redux";
+import {cancelBooking, compare} from "../actions/actions";
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 
 const useStyles = theme => ({
   root: {
@@ -75,28 +79,27 @@ class BookingList extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row,index) => (
+              {this.props.bookings.map((booking, index) => (
                   <Grow in={true}
                         style={{transformOrigin: '0 0 0'}}
                         {...({timeout: 1000 + index * 150})}>
-                  <TableRow key={row.name}>
-                    <TableCell component="th" scope="row">
-                      {row.building}
-                    </TableCell>
-                    <TableCell align="right">{row.room}</TableCell>
-                    <TableCell align="center">{row.numberOfPeople}</TableCell>
-                    <TableCell align="right">{row.time}</TableCell>
-                    <TableCell align="right"> <Button variant="contained"
-                                                      className={classes.feedbackButton}
-                                                      onClick={() => {
-                                                        alert(
-                                                            "Your booking"
-                                                            + " was"
-                                                            + " cancelled!")
-                                                      }}
-                    >Cancel</Button>
-                    </TableCell>
-                  </TableRow>
+                    <TableRow>
+                      <TableCell component="th" scope="row">
+                        {booking.building}
+                      </TableCell>
+                      <TableCell align="right">{booking.room}</TableCell>
+                      <TableCell
+                          align="center">{booking.numberOfPeople}</TableCell>
+                      <TableCell align="right">{booking.time}</TableCell>
+                      <TableCell align="right"> <Button variant="contained"
+                                                        className={classes.feedbackButton}
+                                                        onClick={() => {
+                                                          this.props.cancelBooking(
+                                                              index)
+                                                        }}
+                      >Cancel</Button>
+                      </TableCell>
+                    </TableRow>
                   </Grow>
               ))}
             </TableBody>
@@ -108,5 +111,18 @@ class BookingList extends React.Component {
 
 }
 
-export default withStyles(useStyles)(BookingList)
+const mapStateToProps = (state) => {
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings: state.state.bookings
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({compare, cancelBooking}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(BookingList))))
 

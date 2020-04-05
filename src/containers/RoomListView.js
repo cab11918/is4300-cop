@@ -21,6 +21,11 @@ import RoomList from "../components/RoomList";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import Toolbar from "@material-ui/core/Toolbar";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {viewBuilding} from "../actions/actions";
+
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
@@ -30,23 +35,23 @@ const useStyles = theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
     margin: theme.spacing(1),
-    height:'80vh'
+    height: '80vh'
 
   },
-  buildingTitle:{
+  buildingTitle: {
     padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.primary,
     margin: theme.spacing(0)
   },
-  backButton:{
-    alignItems:'left',
+  backButton: {
+    alignItems: 'left',
 
   }
 
 });
 
-class MainView extends React.Component {
+class RoomListView extends React.Component {
 
   constructor(props) {
 
@@ -88,11 +93,18 @@ class MainView extends React.Component {
                 <Paper elevation={3} className={classes.paper}>
 
                   <Typography variant={'h4'} className={classes.buildingTitle}>
-                    <IconButton aria-label="delete" href={'/'} className={classes.backButton}>
-                      <ArrowBackIosIcon />
-                    </IconButton>
-                    Rooms</Typography>
-                  <RoomList/>
+                    <Link to={"/"} style={{textDecoration: 'none'}}>
+                      <IconButton aria-label="delete"
+                                  className={classes.backButton}
+                                  onClick={()=> this.props.viewBuilding(-1)}>
+                        <ArrowBackIosIcon/>
+                      </IconButton>
+                    </Link>
+                    Rooms
+                  </Typography>
+                  {this.props.curViewingBuilding == -1 ? <Typography variant={'h6'}
+                                                                 color={"textSecondary"}>Didn't
+                    select any building.</Typography> : <RoomList/>}
                 </Paper>
               </Grid>
             </Grid>
@@ -100,13 +112,25 @@ class MainView extends React.Component {
 
         </Fragment>
 
-
-
     )
 
   }
 
 }
 
-export default (withStyles(useStyles)(MainView))
+const mapStateToProps = (state) => {
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings: state.state.bookings,
+    curViewingBuilding: state.state.curViewingBuilding
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({viewBuilding}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(RoomListView))))
 

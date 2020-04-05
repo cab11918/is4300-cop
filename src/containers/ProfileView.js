@@ -23,7 +23,6 @@ import BookingList from "../components/BookingList";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
@@ -45,10 +44,10 @@ const useStyles = theme => ({
     alignItems: 'flex-end',
 
   },
-  bookings:{
+  bookings: {
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(2),
-    marginLeft:theme.spacing(2)
+    marginLeft: theme.spacing(2)
   }
 
 });
@@ -77,7 +76,6 @@ class ProfileView extends React.Component {
           <Container maxWidth="100%">
 
             <div>
-              {this.props.buildings.length}
             </div>
             <Grid
                 container
@@ -89,21 +87,27 @@ class ProfileView extends React.Component {
 
                 <Paper className={classes.paper} elevation={3}>
                   <Grid container>
-                    <Grid item> <IconButton aria-label="delete" href={'/'}
-                                            className={classes.closeButton}>
-                      <CloseIcon/>
-                    </IconButton></Grid>
+                    <Grid item> <Link to={'/'}>
+                      <IconButton aria-label="delete"
+                                  className={classes.closeButton}>
+                        <CloseIcon/>
+                      </IconButton>
+                    </Link> </Grid>
                     <Grid item>
                       <Typography variant={'h4'}>New User</Typography>
                     </Grid>
                   </Grid>
 
 
-                  <Typography variant={'h5'} className={classes.bookings}>Bookings</Typography>
+                  <Typography variant={'h5'}
+                              className={classes.bookings}>Bookings</Typography>
 
-                   {this.props.isLoggedIn ?  <BookingList/> : <div>
-                     Please log in
-                   </div>}
+                  {this.props.isLoggedIn ? this.props.bookings.length == 0 ? <Typography
+                      variant={'h6'} color='textSecondary'
+                      className={classes.bookings}>You don't have any bookings right now.</Typography> :  <BookingList/> : <Typography
+                      variant={'h6'} color='textSecondary'
+                      className={classes.bookings}>Please Log In to view your
+                    bookings.</Typography>}
 
                 </Paper>
               </Grid>
@@ -125,12 +129,12 @@ class ProfileView extends React.Component {
 
 }
 
-
 const mapStateToProps = (state) => {
-return{
-  buildings: state.state.buildings,
-  isLoggedIn: state.state.isLoggedIn
-}
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings:state.state.bookings
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

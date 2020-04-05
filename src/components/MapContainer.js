@@ -10,6 +10,20 @@ import MarkerWithLabel from 'react-google-maps/lib/components/addons/MarkerWithL
 import STYLE from '../others/mapStyle'
 import LOCATIONS from '../others/locations'
 import SERVICE from '../service'
+import {bindActionCreators} from "redux";
+import {
+  cancelBooking,
+  compare,
+  viewBuilding,
+  viewRoom
+} from "../actions/actions";
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
+import withStyles from "@material-ui/core/styles/withStyles";
+import { NavLink } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
+
 
 class MapContainer extends Component {
   constructor(props) {
@@ -19,8 +33,8 @@ class MapContainer extends Component {
 
       markers: [{
         position: {
-          lat: 42.339468,
-          lng: -71.088525,
+          lat: 42.338805,
+          lng: -71.088924
         }
       }],
       locations: []
@@ -35,14 +49,16 @@ class MapContainer extends Component {
         })
     }
 
+
+
     render() {
     const ClassroomMap = withGoogleMap(props => (
         <GoogleMap
-            defaultCenter={{
-              lat: 42.339468,
-              lng: -71.088525
-            }}
-            defaultZoom={17}
+            defaultCenter={this.props.curViewingBuilding == -1? {
+              lat: 42.338805,
+              lng: -71.088924
+            }:this.props.buildings[this.props.curViewingBuilding].address.loc}
+            defaultZoom={this.props.curViewingBuilding == -1? 17 : 20}
             options={{
               mapTypeControl: false,
               fullscreenControl: false,
@@ -51,11 +67,14 @@ class MapContainer extends Component {
         >
 
           {
-            this.state.locations.map(loc => (
+            this.props.buildings.map((building,index) => (
+
                 <MarkerWithLabel labelAnchor={{x: -2, y: -2}}
-                                 position={{lat:loc.latitude, lng:loc.longitude}}
-                                 onClick={()=>{alert(loc.name)}}>
-                  <div style={{fontSize: 18,fontWeight: 'bold'}}>{loc.name}</div>
+                                 position={{lat:building.address.loc.lat, lng:building.address.loc.lng}}
+                                 onClick={()=>{
+                                   this.props.viewBuilding(index)
+                                   this.props.history.push("/buildings/rooms")}}>
+                  <div style={{fontSize: 18,fontWeight: 'bold'}}>{building.name}</div>
                 </MarkerWithLabel>
             ))
           }
@@ -74,4 +93,19 @@ class MapContainer extends Component {
     );
   }
 };
-export default MapContainer;
+const mapStateToProps = (state) => {
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings:state.state.bookings,
+    curViewingBuilding: state.state.curViewingBuilding,
+    curViewingRoom: state.state.curViewingRoom,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({compare,cancelBooking,viewBuilding}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((MapContainer)))

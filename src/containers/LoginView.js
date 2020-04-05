@@ -35,23 +35,16 @@ const useStyles = theme => ({
     margin: theme.spacing(1)
 
   },
-  closeButton:{
+  closeButton: {
 
     margin: theme.spacing(1),
 
-
   },
-  textBox:{
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+  textBox: {
+    margin: theme.spacing(1)
   },
-  sendButton:{
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+  sendButton: {
+    margin: theme.spacing(1),
     alignContent: 'right'
   },
 
@@ -64,12 +57,12 @@ class LoginView extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      logInWindowOpen: false
     }
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
-
 
   componentDidMount() {
   }
@@ -77,29 +70,30 @@ class LoginView extends React.Component {
   handleUsernameChange(e) {
     this.setState({
       username: e.target.value
-    })}
+    })
+  }
 
   handlePasswordChange(e) {
     this.setState({
       password: e.target.value
-    })}
+    })
+  }
+
   render() {
 
     const {classes} = this.props;
 
     return (
 
+        <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            style={{minHeight: '95vh'}}
 
-
-          <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              style={{ minHeight: '95vh'}}
-
-          >
-            <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+        >
+          <Slide direction="up" in={true} mountOnEnter unmountOnExit>
 
 
             <Paper className={classes.paper} elevation={3}>
@@ -108,8 +102,9 @@ class LoginView extends React.Component {
                     item
 
                 >
-                  <IconButton aria-label="delete" href={'/'} className={classes.closeButton}>
-                    <CloseIcon />
+                  <IconButton aria-label="delete" href={'/'}
+                              className={classes.closeButton}>
+                    <CloseIcon/>
                   </IconButton>
                 </Grid>
 
@@ -128,37 +123,34 @@ class LoginView extends React.Component {
                   onChange={this.handleUsernameChange}
               />
 
-          <Grid direction="row">
-          <TextField
-              id="standard-basic"
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              variant="outlined"
-              style={{margin: 10}}
-              onChange={this.handlePasswordChange}
+              <Grid direction="row">
+                <TextField
+                    id="standard-basic"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    variant="outlined"
+                    style={{margin: 10}}
+                    onChange={this.handlePasswordChange}
 
 
-          />
+                />
 
 
-          </Grid>
-          <Grid direction="row" >
+              </Grid>
+              <Grid direction="row">
 
-          <Button variant="contained" color="primary" href={'/'}  style={{margin: 10}} onClick={()=>{this.props.compare({username: this.state.username, password: this.state.password})} }>
-            Log in
-          </Button>
+                <Button variant="contained" color="primary"
+                        style={{margin: 10}} onClick={() => {
+                  this.setState({logInWindowOpen: true})
+                }}>
+                  Log in
+                </Button>
 
-          </Grid>
+              </Grid>
             </Paper>
-            </Slide>
-          </Grid>
-
-
-
-
-
-
+          </Slide>
+        </Grid>
 
     )
 
@@ -167,7 +159,7 @@ class LoginView extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return{
+  return {
     buildings: state.state.buildings,
     isLoggedIn: state.state.isLoggedIn
   }

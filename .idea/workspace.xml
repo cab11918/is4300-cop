@@ -5,10 +5,21 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BookingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BuildingCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuildingCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BuildingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuildingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MapContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MapContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RoomCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RoomCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RoomList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RoomList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AllViews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AllViews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/FeedbackView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FeedbackView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/ProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ProfileView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/RoomListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RoomListView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/RoomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RoomView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/reducers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +142,22 @@
       <screen x="0" y="23" width="1440" height="831" />
     </state>
     <state x="320" y="104" key="#ESLint/0.23.1440.831@0.23.1440.831" timestamp="1584411717661" />
+    <state width="1358" height="201" key="GridCell.Tab.0.bottom" timestamp="1586036541484">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1358" height="201" key="GridCell.Tab.0.bottom/0.23.1440.831/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1586036541484" />
+    <state width="1358" height="201" key="GridCell.Tab.0.center" timestamp="1586036541483">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1358" height="201" key="GridCell.Tab.0.center/0.23.1440.831/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1586036541483" />
+    <state width="1358" height="201" key="GridCell.Tab.0.left" timestamp="1586036541482">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1358" height="201" key="GridCell.Tab.0.left/0.23.1440.831/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1586036541482" />
+    <state width="1358" height="201" key="GridCell.Tab.0.right" timestamp="1586036541483">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1358" height="201" key="GridCell.Tab.0.right/0.23.1440.831/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1586036541483" />
     <state x="221" y="76" key="SettingsEditor" timestamp="1584677353033">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
@@ -160,9 +187,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586032151458" />
-    <state x="385" y="178" width="670" height="676" key="search.everywhere.popup" timestamp="1584412297598">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state x="385" y="168" width="670" height="733" key="search.everywhere.popup" timestamp="1586043013472">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="385" y="168" width="670" height="733" key="search.everywhere.popup/0.0.1440.900/-1920.-180.1920.1080@0.0.1440.900" timestamp="1586043013472" />
     <state x="385" y="178" width="670" height="676" key="search.everywhere.popup/0.23.1440.831@0.23.1440.831" timestamp="1584412297598" />
   </component>
   <component name="XDebuggerManager">
@@ -170,13 +198,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/MapContainer.js</url>
-          <line>39</line>
+          <line>55</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/NavBar.js</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

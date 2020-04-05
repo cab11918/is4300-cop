@@ -23,6 +23,7 @@ import FeedbackView from "./FeedbackView";
 import LoginView from "./LoginView";
 import RoomListView from "./RoomListView";
 import RoomView from "./RoomView";
+import {browserHistory} from "react-router"
 
 const useStyles = theme => ({
 
@@ -62,10 +63,10 @@ class AllViews extends React.Component {
       <LoginView/>
     </Route>
 
-    <Route exact path="/buildings/1/rooms">
+    <Route exact path="/buildings/rooms">
       <RoomListView/>
     </Route>
-    <Route exact path="/buildings/1/rooms/1">
+    <Route exact path="/room">
       <RoomView/>
     </Route>
 

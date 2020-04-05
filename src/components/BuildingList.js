@@ -17,6 +17,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
+import {Link, withRouter} from "react-router-dom";
 
 import ShillmanHallImg from '../imgs/shillmanhall.jpg'
 import BuildingCard from "./BuildingCard";
@@ -24,17 +25,20 @@ import Grow from "@material-ui/core/Grow";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import SERVICE from "../service"
+import {bindActionCreators} from "redux";
+import {cancelBooking, compare, viewBuilding} from "../actions/actions";
+import {connect} from "react-redux";
 
 const useStyles = theme => ({
 
   table: {
     maxHeight: 440,
-    overflowY:'auto'
+    overflowY: 'auto'
 
   },
-  tContainer:{
+  tContainer: {
     overflow: 'auto',
-    height:'72vh'
+    height: '72vh'
   },
   root: {
     flexGrow: 12,
@@ -56,9 +60,8 @@ const useStyles = theme => ({
   cover: {
     width: '100%',
     height: 100,
-    align:'right'
+    align: 'right'
   }
-
 
 });
 
@@ -70,13 +73,14 @@ class BuildingList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      buildings :[]
+      buildings: []
     }
 
   }
+
   componentDidMount() {
     SERVICE.getInstance().getBuildingsList().then(buildings => {
-      this.setState({buildings:buildings})
+      this.setState({buildings: buildings})
       console.log(this.state.buildings)
     })
   }
@@ -95,7 +99,7 @@ class BuildingList extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              { this.state.buildings.map((building,index) => (
+              {this.props.buildings.map((building, index) => (
 
                   <TableRow>
 
@@ -103,23 +107,31 @@ class BuildingList extends React.Component {
                           style={{transformOrigin: '0 0 0'}}
                           {...({timeout: 1000 + index * 150})}>
 
-                      <TableCell>        <Card className={classes.root} elevation={3}>
+                      <TableCell id={building.id}> <Card
+                          className={classes.root} elevation={3}>
 
                         <div className={classes.details}>
-                          <CardActionArea href={'/buildings/1/rooms'}>
-                            <CardContent className={classes.content}>
-                              <Typography component="h5" variant="h5">
-                                {building.name}
-                              </Typography>
-                              <Typography variant="subtitle1" color="textSecondary">
-                                {building.address}
-                              </Typography>
-                              <Typography variant="subtitle1" color="textSecondary">
-                                {building.numberOfRooms} rooms available
-                              </Typography>
+                          <Link to={'/buildings/rooms'}
+                                style={{textDecoration: 'none'}}>
+                            <CardActionArea onClick={() => this.props.viewBuilding(
+                                index)}>
+                              <CardContent className={classes.content}>
+                                <Typography component="h5" variant="h5">
+                                  {building.name}
+                                </Typography>
+                                <Typography variant="subtitle1"
+                                            color="textSecondary">
+                                  {building.address.line}
+                                </Typography>
+                                <Typography variant="subtitle1"
+                                            color="textSecondary">
+                                  {30 - building.numberOfRooms} rooms available
+                                </Typography>
 
-                            </CardContent>
-                          </CardActionArea>
+                              </CardContent>
+                            </CardActionArea>
+                          </Link>
+
 
                         </div>
                         <CardMedia
@@ -127,7 +139,9 @@ class BuildingList extends React.Component {
                             image={building.image}
                             title="Live from space album cover"
                         />
-                        <LinearProgress variant="determinate" value={80} style={{height:10,}}/>
+                        <LinearProgress variant="determinate"
+                                        value={(building.numberOfRooms) / 30
+                                        * 100} style={{height: 5}}/>
 
 
                       </Card></TableCell>
@@ -144,5 +158,18 @@ class BuildingList extends React.Component {
 
 }
 
-export default withStyles(useStyles)(BuildingList)
+const mapStateToProps = (state) => {
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings: state.state.bookings,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({compare, cancelBooking, viewBuilding}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(BuildingList))))
 

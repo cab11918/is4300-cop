@@ -12,6 +12,10 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import {bindActionCreators} from "redux";
+import {viewRoom} from "../actions/actions";
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 const useStyles = theme => ({
   root: {
     flexGrow: 1,
@@ -51,7 +55,7 @@ class RoomCard extends React.Component {
             <CardActionArea href={'/room/101'}>
               <CardContent className={classes.content}>
                 <Typography component="h5" variant="h5">
-                  ROOM 101
+
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
                   4/5
@@ -74,5 +78,19 @@ class RoomCard extends React.Component {
 
 }
 
-export default withStyles(useStyles)(RoomCard)
+const mapStateToProps = (state) => {
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings: state.state.bookings,
+    curViewingBuilding: state.state.curViewingBuilding,
+    curViewingRoom: state.state.curViewingRoom
+  }
+}
 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({viewRoom}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(RoomCard))))

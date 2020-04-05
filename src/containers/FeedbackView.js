@@ -32,24 +32,22 @@ const useStyles = theme => ({
   title: {
     margin: theme.spacing(1),
 
-
   },
-  closeButton:{
-    alignItems:'flex-end',
+  closeButton: {
+    alignItems: 'flex-end',
     margin: theme.spacing(1),
 
-
   },
-  textBox:{
+  textBox: {
     margin: theme.spacing(2),
 
   },
-  sendButton:{
+  sendButton: {
     margin: theme.spacing(1),
-    fontSize:15
+    fontSize: 15
   },
-  sendIcon:{
-    size:15,
+  sendIcon: {
+    size: 15,
     marginLeft: theme.spacing(1)
   }
 });
@@ -72,36 +70,41 @@ class AllViews extends React.Component {
 
     return (
 
-          <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              style={{ minHeight: '95vh' }}
-          >
-            <Grid item xs={11} sm={6} lg={5}>
-              <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+        <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            style={{minHeight: '95vh'}}
+        >
+          <Grid item xs={11} sm={6} lg={5}>
+            <Slide direction="up" in={true} mountOnEnter unmountOnExit>
 
               <Paper className={classes.paper} elevation={3}>
-               <Grid container>
-                 <Grid
-                     item
+                <Grid container>
+                  <Grid
+                      item
 
-                 >
-                   <IconButton aria-label="delete" href={'/'} className={classes.closeButton}>
-                     <CloseIcon />
-                   </IconButton>
-                 </Grid>
+                  >
+                    <Link to={"/"}>
+                      <IconButton aria-label="delete"
+                                  className={classes.closeButton}>
+                        <CloseIcon/>
+                      </IconButton>
+                    </Link>
+                  </Grid>
 
-                 <Grid item>
+                  <Grid item>
 
-                   <Typography variant={'h4'}
-                               className={classes.title}>Feedback</Typography>
-                 </Grid>
-               </Grid>
+                    <Typography variant={'h4'}
+                                className={classes.title}>Feedback</Typography>
+                  </Grid>
+                </Grid>
                 <form className={classes.textBox} noValidate autoComplete="off">
-                  <TextField  placeholder={"Say something good..."} id="outlined-basic" variant="outlined" fullWidth multiline
-                             rows="10" />
+                  <TextField placeholder={"Say something good..."}
+                             id="outlined-basic" variant="outlined" fullWidth
+                             multiline
+                             rows="10"/>
                 </form>
                 <Grid
                     container
@@ -110,27 +113,23 @@ class AllViews extends React.Component {
                     alignItems="center"
                 >
 
-                <Button variant="contained" color="secondary" className={classes.sendButton} href={'/'}>
-
-                  Send
-                  <SendIcon className={classes.sendIcon}/>
-                </Button>
+                  <Link to={"/"} style={{textDecoration: 'none'}}>
+                    <Button variant="contained" color="secondary"
+                            className={classes.sendButton}>
+                      Send
+                      <SendIcon className={classes.sendIcon}/>
+                    </Button>
+                  </Link>
                 </Grid>
 
 
-
-
-
-
-
               </Paper>
-              </Slide>
-
-            </Grid>
-
+            </Slide>
 
           </Grid>
 
+
+        </Grid>
 
     )
 

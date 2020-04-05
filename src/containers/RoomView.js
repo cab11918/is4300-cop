@@ -28,6 +28,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Toolbar from "@material-ui/core/Toolbar";
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {bookRoom, viewRoom} from "../actions/actions";
 
 const useStyles = theme => ({
   root: {
@@ -37,7 +40,7 @@ const useStyles = theme => ({
     padding: theme.spacing(2),
     textAlign: 'flex-start',
     margin: theme.spacing(1),
-    minHeight:'80vh'
+    minHeight: '80vh'
   },
   buildingTitle: {
     padding: theme.spacing(1),
@@ -53,25 +56,27 @@ const useStyles = theme => ({
     margin: theme.spacing(1),
     minWidth: 40,
   },
-  bookButton:{
-    align:'flex-end',
-    position: 'absolute',
-
-
-  },
-  bookIcon:{
+  bookButton: {},
+  bookIcon: {
     marginLeft: theme.spacing(1),
 
   }
 
 });
 
-class MainView extends React.Component {
+class RoomView extends React.Component {
 
   constructor(props) {
 
     super(props);
-    this.state = {}
+    this.state = {
+      bookingTicket: {
+        numberOfPeople: '-1',
+        from: '',
+        to: '',
+        date: ''
+      }
+    }
 
   }
 
@@ -107,12 +112,20 @@ class MainView extends React.Component {
 
                 <Paper elevation={3} className={classes.paper}>
 
-                  <Typography variant={'h4'} className={classes.buildingTitle}>
-                    <IconButton aria-label="delete" href={'/room'}
-                                className={classes.backButton}>
-                      <ArrowBackIosIcon/>
-                    </IconButton>
-                    Room 101</Typography>
+                  {this.props.curViewingRoom == -1
+                  || this.props.curViewingBuilding == -1 ? <Typography>No
+                    Building/Room selected</Typography> : <Typography
+                      variant={'h4'} className={classes.buildingTitle}>
+                    <Link to={"/buildings/rooms"}>
+                      <IconButton aria-label="delete"
+                                  className={classes.backButton}>
+                        <ArrowBackIosIcon/>
+                      </IconButton>
+                    </Link>
+
+
+                    Room {this.props.buildings[this.props.curViewingBuilding].rooms[this.props.curViewingRoom].name}
+                  </Typography>}
 
                   <Grid
                       container
@@ -120,92 +133,133 @@ class MainView extends React.Component {
                       justify="flex-start"
                       alignItems="flex-start"
                   >
-                  <Typography variant={'h6'} className={classes.buildingTitle}>
-                    Status: vacant
-                  </Typography>
-                  <Typography variant={'h6'} className={classes.buildingTitle}>
-                    Number of people:
-                  </Typography>
-                  <FormControl className={classes.formControl}>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={1}
+                    <Typography variant={'h6'}
+                                className={classes.buildingTitle}>
+                      Status: vacant
+                    </Typography>
+                    <Typography variant={'h6'}
+                                className={classes.buildingTitle}>
+                      Number of people:
+                    </Typography>
+                    <FormControl className={classes.formControl}>
+                      <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={this.state.numberOfPeople}
+                          onChange={(e) => this.setState(
+                              {numberOfPeople: e.target.value})}
+                          defaultValue={1}
+                      >
+                        <MenuItem value={1}>1</MenuItem>
+                        <MenuItem value={2}>2</MenuItem>
+                        <MenuItem value={3}>3</MenuItem>
+                        <MenuItem value={4}>4</MenuItem>
+                        <MenuItem value={5}>5</MenuItem>
+                        <MenuItem value={6}>6</MenuItem>
+                        <MenuItem value={7}>7</MenuItem>
+                        <MenuItem value={8}>8</MenuItem>
+                        <MenuItem value={9}>9</MenuItem>
+                        <MenuItem value={10}>10</MenuItem>
 
-                    >
-                      <MenuItem value={1}>1</MenuItem>
-                      <MenuItem value={2}>2</MenuItem>
-                      <MenuItem value={3}>3</MenuItem>
-                      <MenuItem value={4}>4</MenuItem>
-                      <MenuItem value={5}>5</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <Typography variant={'h6'}
+                                className={classes.buildingTitle}>
+                      Time:
+                    </Typography>
+                    <Grid container> <Grid item>
+                      <form className={classes.container} noValidate>
+                        <TextField
+                            id="time"
+                            type="time"
+                            label="From"
+                            defaultValue="07:30"
+                            className={classes.formControl}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            inputProps={{
+                              step: 300, // 5 min
+                            }}
+                            onChange={(e) => {
+                              this.setState({from: e.target.value.toString()})
 
-                    </Select>
-                  </FormControl>
-                  <Typography variant={'h6'} className={classes.buildingTitle}>
-                    Time:
-                  </Typography>
-            <Grid container>    <Grid item>  <form className={classes.container} noValidate>
-              <TextField
-                  id="time"
-                  type="time"
-                  label="From"
-                  defaultValue="07:30"
-                  className={classes.formControl}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  inputProps={{
-                    step: 300, // 5 min
-                  }}
-              />
-            </form></Grid>
-              <Grid item>
-                <form className={classes.container} noValidate>
-                  <TextField
-                      id="time"
-                      type="time"
-                      label="To"
-                      defaultValue="07:30"
-                      className={classes.formControl}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      inputProps={{
-                        step: 300, // 5 min
-                      }}
-                  />
-                </form>
-              </Grid></Grid>
+                            }}
+                        />
+                      </form>
+                    </Grid>
+                      <Grid item>
+                        <form className={classes.container} noValidate>
+                          <TextField
+                              id="time"
+                              type="time"
+                              label="To"
+                              defaultValue="07:30"
+                              className={classes.formControl}
+                              InputLabelProps={{
+                                shrink: true,
+                              }}
+                              inputProps={{
+                                step: 300, // 5 min
+                              }}
+                              onChange={(e) => {
+                                this.setState({to: e.target.value.toString()})
+
+                              }}
+                          />
+                        </form>
+                      </Grid></Grid>
 
 
-
-                  <Typography variant={'h6'} className={classes.buildingTitle}>
-                    Date:
-                  </Typography>
-                  <form className={classes.container} noValidate>
-                    <TextField
-                        id="date"
-                        type="date"
-                        defaultValue="2017-05-24"
-                        className={classes.formControl}
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                    />
-                  </form>
+                    <Typography variant={'h6'}
+                                className={classes.buildingTitle}>
+                      Date:
+                    </Typography>
+                    <form className={classes.container} noValidate>
+                      <TextField
+                          id="date"
+                          type="date"
+                          defaultValue="2017-05-24"
+                          className={classes.formControl}
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                          onChange={(e) => {
+                            this.setState({date: e.target.value.toString()})
+                          }}
+                      />
+                    </form>
 
                   </Grid>
 
 
-
                   <Grid
-                      container
+
                       direction="column-reverse"
                       justify="flex-end"
                       alignItems="flex-end"
                   >
-                    <Button variant="contained" className={classes.bookButton} href={'/'}>Book
-                    <ConfirmationNumberIcon className={classes.bookIcon}/></Button>
+                    <Link to={"/"} style={{textDecoration: 'none'}}>
+
+                      {this.props.curViewingRoom == -1
+                      || this.props.curViewingBuilding == -1 || !this.props.isLoggedIn? <div></div> :
+                          <Button variant="contained"
+                                  onClick={() => {
+                                    this.props.bookRoom({
+                                      building: this.props.buildings[this.props.curViewingBuilding].name,
+                                      room: this.props.buildings[this.props.curViewingBuilding].rooms[this.props.curViewingRoom].name,
+                                      numberOfPeople: this.state.numberOfPeople,
+                                      time: this.state.from + "-"
+                                          + this.state.to
+                                          + " " + this.state.date
+                                    })
+                                  }}
+                                  className={classes.bookButton}>Book
+                            <ConfirmationNumberIcon
+                                className={classes.bookIcon}
+                            /></Button>}
+
+                    </Link>
                   </Grid>
                 </Paper>
 
@@ -221,5 +275,20 @@ class MainView extends React.Component {
 
 }
 
-export default (withStyles(useStyles)(MainView))
+const mapStateToProps = (state) => {
+  return {
+    buildings: state.state.buildings,
+    isLoggedIn: state.state.isLoggedIn,
+    bookings: state.state.bookings,
+    curViewingBuilding: state.state.curViewingBuilding,
+    curViewingRoom: state.state.curViewingRoom,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({bookRoom, viewRoom}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    withRouter((withStyles(useStyles)(RoomView))))
 
