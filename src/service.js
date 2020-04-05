@@ -9,12 +9,10 @@ export default class ClassService{
     }
 
     getBuildingsList() {
-        return fetch("http://localhost:3001/buildings")
-            .then(response => response.json())
+      return
     }
 
     getRoomsList(buildingID) {
-        return fetch("http://localhost:3001/rooms:" + buildingID)
-            .then(response => response.json())
+return
     }
 }

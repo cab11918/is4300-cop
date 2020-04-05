@@ -70,12 +70,11 @@ class RoomView extends React.Component {
 
     super(props);
     this.state = {
-      bookingTicket: {
         numberOfPeople: '-1',
         from: '',
         to: '',
         date: ''
-      }
+
     }
 
   }
@@ -85,7 +84,10 @@ class RoomView extends React.Component {
 
   render() {
 
+    let whetherGoBack = "/room"
+
     const {classes} = this.props;
+
 
     return (
 
@@ -148,7 +150,6 @@ class RoomView extends React.Component {
                           value={this.state.numberOfPeople}
                           onChange={(e) => this.setState(
                               {numberOfPeople: e.target.value})}
-                          defaultValue={1}
                       >
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
@@ -173,7 +174,7 @@ class RoomView extends React.Component {
                             id="time"
                             type="time"
                             label="From"
-                            defaultValue="07:30"
+                            defaultValue="--:--"
                             className={classes.formControl}
                             InputLabelProps={{
                               shrink: true,
@@ -194,7 +195,7 @@ class RoomView extends React.Component {
                               id="time"
                               type="time"
                               label="To"
-                              defaultValue="07:30"
+                              defaultValue="--:--"
                               className={classes.formControl}
                               InputLabelProps={{
                                 shrink: true,
@@ -219,7 +220,7 @@ class RoomView extends React.Component {
                       <TextField
                           id="date"
                           type="date"
-                          defaultValue="2017-05-24"
+                          defaultValue="yyyy-mm-dd"
                           className={classes.formControl}
                           InputLabelProps={{
                             shrink: true,
@@ -239,27 +240,45 @@ class RoomView extends React.Component {
                       justify="flex-end"
                       alignItems="flex-end"
                   >
-                    <Link to={"/"} style={{textDecoration: 'none'}}>
 
-                      {this.props.curViewingRoom == -1
-                      || this.props.curViewingBuilding == -1 || !this.props.isLoggedIn? <div></div> :
+                    {this.props.curViewingRoom == -1
+                    || this.props.curViewingBuilding == -1
+                    || !this.props.isLoggedIn ? <Typography>Please log in to
+                          book.</Typography> :
+                        <Link to={whetherGoBack} style={{textDecoration: 'none'}}>
+
                           <Button variant="contained"
                                   onClick={() => {
-                                    this.props.bookRoom({
-                                      building: this.props.buildings[this.props.curViewingBuilding].name,
-                                      room: this.props.buildings[this.props.curViewingBuilding].rooms[this.props.curViewingRoom].name,
-                                      numberOfPeople: this.state.numberOfPeople,
-                                      time: this.state.from + "-"
-                                          + this.state.to
-                                          + " " + this.state.date
-                                    })
+                                    console.log(this.state.bookingTicket)
+
+                                    if(this.state.numberOfPeople == -1 || this.state.from == ""|| this.state.to == "" || this.state.date == "") {
+                                      alert("Please fill the form properly.")
+                                    } else {
+                                      this.props.bookRoom({
+                                        building: this.props.buildings[this.props.curViewingBuilding].name,
+                                        room: this.props.buildings[this.props.curViewingBuilding].rooms[this.props.curViewingRoom].name,
+                                        numberOfPeople: this.state.numberOfPeople,
+                                        time: this.state.from + "-"
+                                            + this.state.to
+                                            + " " + this.state.date
+
+                                      })
+                                      whetherGoBack = "/"
+
+                                    }
+
+
+
                                   }}
                                   className={classes.bookButton}>Book
                             <ConfirmationNumberIcon
                                 className={classes.bookIcon}
-                            /></Button>}
+                            />
 
-                    </Link>
+                          </Button>
+                        </Link>}
+
+
                   </Grid>
                 </Paper>
 

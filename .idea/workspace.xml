@@ -3,23 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="601293d4-7c06-48fe-be9b-dd8c4a800cdf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BookingList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BuildingCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuildingCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BuildingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuildingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MapContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MapContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RoomCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RoomCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RoomList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RoomList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/AllViews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AllViews.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/FeedbackView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FeedbackView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ProfileView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/RoomListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RoomListView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/RoomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RoomView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +184,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/MapContainer.js</url>
-          <line>55</line>
+          <line>52</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

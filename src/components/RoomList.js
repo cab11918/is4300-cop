@@ -76,11 +76,7 @@ class RoomList extends React.Component {
   }
 
   componentDidMount() {
-    const buildingID = 1;
-    SERVICE.getInstance().getRoomsList(buildingID).then(rooms => {
-      this.setState({rooms: rooms})
-      console.log(this.state.rooms)
-    })
+
   }
 
   render() {

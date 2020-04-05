@@ -43,10 +43,7 @@ class MapContainer extends Component {
 
   }
     componentDidMount() {
-        SERVICE.getInstance().getBuildingsList().then(locations => {
-            this.setState({locations:locations})
-            console.log(this.state.buildings)
-        })
+
     }
 
 

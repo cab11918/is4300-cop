@@ -79,10 +79,7 @@ class BuildingList extends React.Component {
   }
 
   componentDidMount() {
-    SERVICE.getInstance().getBuildingsList().then(buildings => {
-      this.setState({buildings: buildings})
-      console.log(this.state.buildings)
-    })
+
   }
 
   render() {
