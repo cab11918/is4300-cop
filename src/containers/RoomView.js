@@ -70,10 +70,11 @@ class RoomView extends React.Component {
 
     super(props);
     this.state = {
-        numberOfPeople: '-1',
-        from: '',
-        to: '',
-        date: ''
+      numberOfPeople: '-1',
+      from: '',
+      to: '',
+      date: '',
+      whetherGoBack: '/room'
 
     }
 
@@ -84,10 +85,7 @@ class RoomView extends React.Component {
 
   render() {
 
-    let whetherGoBack = "/room"
-
     const {classes} = this.props;
-
 
     return (
 
@@ -245,13 +243,15 @@ class RoomView extends React.Component {
                     || this.props.curViewingBuilding == -1
                     || !this.props.isLoggedIn ? <Typography>Please log in to
                           book.</Typography> :
-                        <Link to={whetherGoBack} style={{textDecoration: 'none'}}>
+                        <Link to={this.state.whetherGoBack}
+                              style={{textDecoration: 'none'}}>
 
                           <Button variant="contained"
                                   onClick={() => {
-                                    console.log(this.state.bookingTicket)
-
-                                    if(this.state.numberOfPeople == -1 || this.state.from == ""|| this.state.to == "" || this.state.date == "") {
+                                    if (this.state.numberOfPeople == -1
+                                        || this.state.from == ""
+                                        || this.state.to == ""
+                                        || this.state.date == "") {
                                       alert("Please fill the form properly.")
                                     } else {
                                       this.props.bookRoom({
@@ -263,11 +263,8 @@ class RoomView extends React.Component {
                                             + " " + this.state.date
 
                                       })
-                                      whetherGoBack = "/"
-
+                                      this.props.history.push('/')
                                     }
-
-
 
                                   }}
                                   className={classes.bookButton}>Book

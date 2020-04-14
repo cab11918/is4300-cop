@@ -72,8 +72,7 @@ class BuildingCard extends React.Component {
               image={require("../imgs/shillmanhall.jpg")}
               title="Live from space album cover"
           />
-          <LinearProgress variant="determinate" value={80}
-                          style={{height: 10,}}/>
+
 
 
         </Card>

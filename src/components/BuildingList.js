@@ -138,7 +138,7 @@ class BuildingList extends React.Component {
                         />
                         <LinearProgress variant="determinate"
                                         value={(building.numberOfRooms) / 30
-                                        * 100} style={{height: 5}}/>
+                                        * 100} style={{height: 4}}/>
 
 
                       </Card></TableCell>
