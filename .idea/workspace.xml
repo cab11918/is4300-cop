@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="601293d4-7c06-48fe-be9b-dd8c4a800cdf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MapContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MapContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/RoomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RoomView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +60,11 @@
       <recent name="$PROJECT_DIR$/src/components" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="y" />
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -117,6 +120,7 @@
       <workItem from="1584836906722" duration="3960000" />
       <workItem from="1584844388490" duration="5069000" />
       <workItem from="1586029531102" duration="6762000" />
+      <workItem from="1586831471652" duration="186000" />
     </task>
     <servers />
   </component>
@@ -152,10 +156,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1584906003445" />
-    <state x="529" y="310" key="com.intellij.ide.util.TipDialog" timestamp="1586029539768">
+    <state x="529" y="310" key="com.intellij.ide.util.TipDialog" timestamp="1586831470597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="529" y="310" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586029539768" />
+    <state x="529" y="310" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586831470597" />
     <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.831@0.23.1440.831" timestamp="1584836906667" />
     <state x="389" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584401679613">
       <screen x="0" y="23" width="1440" height="831" />

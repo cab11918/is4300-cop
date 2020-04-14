@@ -264,7 +264,7 @@ class RoomView extends React.Component {
 
                                       })
                                       whetherGoBack = "/"
-
+                                      alert("The room has been booked!");
                                     }
 
 
