@@ -115,7 +115,7 @@ class AllViews extends React.Component {
 
                   <Link to={"/"} style={{textDecoration: 'none'}}>
                     <Button variant="contained" color="secondary"
-                            className={classes.sendButton}>
+                            className={classes.sendButton} onClick={()=>alert('Thank you for the feedback!')}>
                       Send
                       <SendIcon className={classes.sendIcon}/>
                     </Button>
